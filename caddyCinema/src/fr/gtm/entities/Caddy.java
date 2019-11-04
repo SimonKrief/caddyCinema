@@ -2,12 +2,24 @@ package fr.gtm.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 
 @SessionScoped
 public class Caddy implements Serializable{
+
+	@Override
+	public String toString() {
+		String str="";
+		Iterator<Film> it = films.iterator();
+		while (it.hasNext()) {
+		Film film = (Film) it.next();
+		str+=film.getTitre();
+		}
+	return str;
+	}
 
 	private List<Film> films;
 	private double total;
